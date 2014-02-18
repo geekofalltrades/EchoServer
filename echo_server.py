@@ -33,4 +33,5 @@ try:
 
 except KeyboardInterrupt:
     #Make sure the socket is closed when a KeyboardInterrupt is thrown.
+    print("Caught KeyboardInterrupt; closing server socket and exiting.")
     server_socket.close()
