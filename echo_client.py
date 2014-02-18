@@ -2,7 +2,7 @@ import socket
 import sys
 
 
-def call_echo_server(msg):
+def call_echo_server(msg, buffsize=4096):
     #Set up the client socket.
     client_socket = socket.socket(
         socket.AF_INET,
@@ -14,7 +14,6 @@ def call_echo_server(msg):
     client_socket.sendall(msg)
     client_socket.shutdown(socket.SHUT_WR)
 
-    buffsize = 4096
     done = False
     msg = ''
     while not done:
@@ -33,4 +32,4 @@ if __name__ == '__main__':
     else:
         msg = sys.argv[1]
 
-    print(call_echo_server(msg))
+    print(call_echo_server(msg, 32))

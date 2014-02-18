@@ -4,12 +4,12 @@ Feature: Echo Client
 
     Scenario: Echo Messages
         Given the message <input>
-        When I submit that message to the echo server
+        When I submit that message to the echo server with a buffer of size 32
         Then I receive back <output>
 
     Examples:
     | input | output  |
     | 0     | 0       |
-    | blargh| blargh  |
-    | This is a message. | This is a message.  |
-    | Here is another message.     | Here is another message.    |
+    | This is a short message. | This is a short message.  |
+    | This message overflows the buffer, which is 32 bytes. | This message overflows the buffer, which is 32 bytes.  |
+    | This message matches the buffer.  | This message matches the buffer. |
