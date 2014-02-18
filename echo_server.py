@@ -32,9 +32,9 @@ def start_echo_server(buffsize=4096):
             conn.shutdown(socket.SHUT_WR)
             conn.close()
 
-    except KeyboardInterrupt:
+    finally:
         #Make sure the socket is closed when a KeyboardInterrupt is thrown.
-        print("Caught KeyboardInterrupt; closing server socket and exiting.")
+        print("Closing the socket.")
         server_socket.close()
 
 if __name__ == '__main__':
