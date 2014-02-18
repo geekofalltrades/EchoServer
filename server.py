@@ -21,6 +21,9 @@ while True:
             done = True
         msg += msg_part
 
+    #Have a look at the message that was received.
+    print(msg)
+
     conn.shutdown(socket.SHUT_RD)
     conn.sendall(msg)
     conn.shutdown(socket.SHUT_WR)
