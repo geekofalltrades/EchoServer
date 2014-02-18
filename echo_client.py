@@ -23,8 +23,8 @@ def call_echo_server(msg):
             done = True
         msg += msg_part
 
-    print(msg)
     client_socket.close()
+    return msg
 
 
 if __name__ == '__main__':
@@ -33,4 +33,4 @@ if __name__ == '__main__':
     else:
         msg = sys.argv[1]
 
-    call_echo_server(msg)
+    print(call_echo_server(msg))
