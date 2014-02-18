@@ -1,4 +1,5 @@
 import socket
+import sys
 
 #Set up the client socket.
 client_socket = socket.socket(
@@ -8,7 +9,10 @@ client_socket = socket.socket(
 
 client_socket.connect(('127.0.0.1', 50000))
 
-msg = raw_input("Enter your message.")
+if len(sys.argv) < 2:
+    msg = raw_input("Enter your message.")
+else:
+    msg = sys.argv[1]
 
 client_socket.sendall(msg)
 client_socket.shutdown(socket.SHUT_WR)
