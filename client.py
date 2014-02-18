@@ -18,7 +18,7 @@ done = False
 msg = ''
 while not done:
     msg_part = client_socket.recv(buffsize)
-    if len(msg_part < buffsize):
+    if len(msg_part) < buffsize:
         done = True
     msg += msg_part
 

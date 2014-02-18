@@ -17,7 +17,7 @@ while True:
     msg = ''
     while not done:
         msg_part = conn.recv(buffsize)
-        if len(msg_part < buffsize):
+        if len(msg_part) < buffsize:
             done = True
         msg += msg_part
 
